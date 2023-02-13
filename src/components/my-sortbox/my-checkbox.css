@@ -1,0 +1,23 @@
+
+.my-box {
+    height: 4rem;
+    width: 4rem;
+}
+
+
+
+.box-label{
+    border: 0.1rem solid black;
+    padding: 1rem;
+    font-size: 2rem;
+}
+
+
+
+.my-box-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
+  

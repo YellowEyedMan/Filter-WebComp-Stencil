@@ -1,0 +1,27 @@
+
+.sort-container {
+  display: flex;
+  justify-content: center;
+
+  margin: 1rem;
+}
+
+
+.result-container {
+  display: flex;
+  justify-content: center;
+
+  margin: 1rem;
+}
+
+.cart-container {
+  display: flex;
+  justify-content: center;
+  font-size: 3rem;
+  gap: 1rem;
+  margin: 1rem;
+}
+
+
+
+

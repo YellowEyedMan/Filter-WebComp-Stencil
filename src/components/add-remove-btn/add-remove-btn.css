@@ -1,0 +1,62 @@
+
+
+.add-remove-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    border: 0.1rem solid blue;
+    background-color: blue;
+    padding: 0rem 1rem;
+    border-radius: 2rem;
+
+}
+
+.add-remove-container:hover{
+    background-color: white;
+
+}
+.add-remove-container:hover .add-remove-btn-text{
+    color: blue;
+
+}
+
+
+.add-remove-btn{
+    height: 2rem;
+    width: 2rem;
+    border-radius: 50%;
+    border: 0.1rem solid white;
+    color: white;
+    background-color: blue;
+    margin: 0.2rem 0rem;
+    font-size: 1.6rem;
+
+    transition-duration: 0.4s;
+
+}
+.remove-btn{
+    line-height: 0.1rem;
+}
+
+.add-btn{
+    line-height: 1.8rem;
+
+}
+.remove-btn:hover,
+.add-btn:hover{
+    background-color: rgb(255, 255, 255);
+    color: blue;
+    border-color: blue;
+
+}
+
+.add-remove-btn-text{
+    font-size: 1.8rem;
+    margin: 0rem 1rem;
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    transition-duration: 0.4s;
+
+
+}
+
