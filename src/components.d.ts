@@ -8,7 +8,27 @@ import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
     interface AddRemoveBtn {
         "boxChecked": boolean;
-        "color": string;
+        "role": string;
+    }
+    interface AddResultBtn {
+    }
+    interface AddToFilterBtn {
+    }
+    interface FilterComponent {
+    }
+    interface FormComponent {
+    }
+    interface FormField {
+        "key": number;
+        "label": string;
+    }
+    interface GroupComponent {
+        "group": string;
+    }
+    interface ModalCancelBtn {
+    }
+    interface ModalSubmitBtn {
+        "myFormLength": number;
     }
     interface MyCheckbox {
         "group": string;
@@ -19,22 +39,70 @@ export namespace Components {
     }
     interface MyFilter {
     }
+    interface MyModal {
+        "requested": boolean;
+    }
+    interface RemoveResultBtn {
+    }
     interface ResultBtn {
         "name": string;
-        "resultOnChange": () => void;
+    }
+    interface ResultComponent {
+        "group": string;
+        "name"?: string;
     }
     interface SortBtn {
         "name": string;
         "sortOnChange": () => void;
     }
 }
+export interface AddRemoveBtnCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLAddRemoveBtnElement;
+}
+export interface AddResultBtnCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLAddResultBtnElement;
+}
+export interface AddToFilterBtnCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLAddToFilterBtnElement;
+}
+export interface FormComponentCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLFormComponentElement;
+}
+export interface FormFieldCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLFormFieldElement;
+}
+export interface GroupComponentCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLGroupComponentElement;
+}
+export interface ModalCancelBtnCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLModalCancelBtnElement;
+}
+export interface ModalSubmitBtnCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLModalSubmitBtnElement;
+}
 export interface MyCheckboxCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLMyCheckboxElement;
 }
+export interface RemoveResultBtnCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLRemoveResultBtnElement;
+}
 export interface ResultBtnCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLResultBtnElement;
+}
+export interface ResultComponentCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLResultComponentElement;
 }
 export interface SortBtnCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -46,6 +114,54 @@ declare global {
     var HTMLAddRemoveBtnElement: {
         prototype: HTMLAddRemoveBtnElement;
         new (): HTMLAddRemoveBtnElement;
+    };
+    interface HTMLAddResultBtnElement extends Components.AddResultBtn, HTMLStencilElement {
+    }
+    var HTMLAddResultBtnElement: {
+        prototype: HTMLAddResultBtnElement;
+        new (): HTMLAddResultBtnElement;
+    };
+    interface HTMLAddToFilterBtnElement extends Components.AddToFilterBtn, HTMLStencilElement {
+    }
+    var HTMLAddToFilterBtnElement: {
+        prototype: HTMLAddToFilterBtnElement;
+        new (): HTMLAddToFilterBtnElement;
+    };
+    interface HTMLFilterComponentElement extends Components.FilterComponent, HTMLStencilElement {
+    }
+    var HTMLFilterComponentElement: {
+        prototype: HTMLFilterComponentElement;
+        new (): HTMLFilterComponentElement;
+    };
+    interface HTMLFormComponentElement extends Components.FormComponent, HTMLStencilElement {
+    }
+    var HTMLFormComponentElement: {
+        prototype: HTMLFormComponentElement;
+        new (): HTMLFormComponentElement;
+    };
+    interface HTMLFormFieldElement extends Components.FormField, HTMLStencilElement {
+    }
+    var HTMLFormFieldElement: {
+        prototype: HTMLFormFieldElement;
+        new (): HTMLFormFieldElement;
+    };
+    interface HTMLGroupComponentElement extends Components.GroupComponent, HTMLStencilElement {
+    }
+    var HTMLGroupComponentElement: {
+        prototype: HTMLGroupComponentElement;
+        new (): HTMLGroupComponentElement;
+    };
+    interface HTMLModalCancelBtnElement extends Components.ModalCancelBtn, HTMLStencilElement {
+    }
+    var HTMLModalCancelBtnElement: {
+        prototype: HTMLModalCancelBtnElement;
+        new (): HTMLModalCancelBtnElement;
+    };
+    interface HTMLModalSubmitBtnElement extends Components.ModalSubmitBtn, HTMLStencilElement {
+    }
+    var HTMLModalSubmitBtnElement: {
+        prototype: HTMLModalSubmitBtnElement;
+        new (): HTMLModalSubmitBtnElement;
     };
     interface HTMLMyCheckboxElement extends Components.MyCheckbox, HTMLStencilElement {
     }
@@ -59,11 +175,29 @@ declare global {
         prototype: HTMLMyFilterElement;
         new (): HTMLMyFilterElement;
     };
+    interface HTMLMyModalElement extends Components.MyModal, HTMLStencilElement {
+    }
+    var HTMLMyModalElement: {
+        prototype: HTMLMyModalElement;
+        new (): HTMLMyModalElement;
+    };
+    interface HTMLRemoveResultBtnElement extends Components.RemoveResultBtn, HTMLStencilElement {
+    }
+    var HTMLRemoveResultBtnElement: {
+        prototype: HTMLRemoveResultBtnElement;
+        new (): HTMLRemoveResultBtnElement;
+    };
     interface HTMLResultBtnElement extends Components.ResultBtn, HTMLStencilElement {
     }
     var HTMLResultBtnElement: {
         prototype: HTMLResultBtnElement;
         new (): HTMLResultBtnElement;
+    };
+    interface HTMLResultComponentElement extends Components.ResultComponent, HTMLStencilElement {
+    }
+    var HTMLResultComponentElement: {
+        prototype: HTMLResultComponentElement;
+        new (): HTMLResultComponentElement;
     };
     interface HTMLSortBtnElement extends Components.SortBtn, HTMLStencilElement {
     }
@@ -73,16 +207,56 @@ declare global {
     };
     interface HTMLElementTagNameMap {
         "add-remove-btn": HTMLAddRemoveBtnElement;
+        "add-result-btn": HTMLAddResultBtnElement;
+        "add-to-filter-btn": HTMLAddToFilterBtnElement;
+        "filter-component": HTMLFilterComponentElement;
+        "form-component": HTMLFormComponentElement;
+        "form-field": HTMLFormFieldElement;
+        "group-component": HTMLGroupComponentElement;
+        "modal-cancel-btn": HTMLModalCancelBtnElement;
+        "modal-submit-btn": HTMLModalSubmitBtnElement;
         "my-checkbox": HTMLMyCheckboxElement;
         "my-filter": HTMLMyFilterElement;
+        "my-modal": HTMLMyModalElement;
+        "remove-result-btn": HTMLRemoveResultBtnElement;
         "result-btn": HTMLResultBtnElement;
+        "result-component": HTMLResultComponentElement;
         "sort-btn": HTMLSortBtnElement;
     }
 }
 declare namespace LocalJSX {
     interface AddRemoveBtn {
         "boxChecked"?: boolean;
-        "color"?: string;
+        "onAddResultEvent"?: (event: AddRemoveBtnCustomEvent<any>) => void;
+        "onRemoveResultEvent"?: (event: AddRemoveBtnCustomEvent<any>) => void;
+        "role"?: string;
+    }
+    interface AddResultBtn {
+        "onAddResultEvent"?: (event: AddResultBtnCustomEvent<any>) => void;
+    }
+    interface AddToFilterBtn {
+        "onAdd2FltrClickEvent"?: (event: AddToFilterBtnCustomEvent<any>) => void;
+    }
+    interface FilterComponent {
+    }
+    interface FormComponent {
+        "onSendFormInfo"?: (event: FormComponentCustomEvent<any>) => void;
+    }
+    interface FormField {
+        "key"?: number;
+        "label"?: string;
+        "onFieldInput"?: (event: FormFieldCustomEvent<any>) => void;
+    }
+    interface GroupComponent {
+        "group"?: string;
+        "onSendGroupInfo"?: (event: GroupComponentCustomEvent<any>) => void;
+    }
+    interface ModalCancelBtn {
+        "onCancelClickEvent"?: (event: ModalCancelBtnCustomEvent<any>) => void;
+    }
+    interface ModalSubmitBtn {
+        "myFormLength"?: number;
+        "onModalSubmitEvent"?: (event: ModalSubmitBtnCustomEvent<any>) => void;
     }
     interface MyCheckbox {
         "group"?: string;
@@ -94,10 +268,20 @@ declare namespace LocalJSX {
     }
     interface MyFilter {
     }
+    interface MyModal {
+        "requested"?: boolean;
+    }
+    interface RemoveResultBtn {
+        "onRemoveResultEvent"?: (event: RemoveResultBtnCustomEvent<any>) => void;
+    }
     interface ResultBtn {
         "name"?: string;
         "onResultCheckEvent"?: (event: ResultBtnCustomEvent<any>) => void;
-        "resultOnChange"?: () => void;
+    }
+    interface ResultComponent {
+        "group"?: string;
+        "name"?: string;
+        "onSendResultInfo"?: (event: ResultComponentCustomEvent<any>) => void;
     }
     interface SortBtn {
         "name"?: string;
@@ -106,9 +290,20 @@ declare namespace LocalJSX {
     }
     interface IntrinsicElements {
         "add-remove-btn": AddRemoveBtn;
+        "add-result-btn": AddResultBtn;
+        "add-to-filter-btn": AddToFilterBtn;
+        "filter-component": FilterComponent;
+        "form-component": FormComponent;
+        "form-field": FormField;
+        "group-component": GroupComponent;
+        "modal-cancel-btn": ModalCancelBtn;
+        "modal-submit-btn": ModalSubmitBtn;
         "my-checkbox": MyCheckbox;
         "my-filter": MyFilter;
+        "my-modal": MyModal;
+        "remove-result-btn": RemoveResultBtn;
         "result-btn": ResultBtn;
+        "result-component": ResultComponent;
         "sort-btn": SortBtn;
     }
 }
@@ -117,9 +312,20 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "add-remove-btn": LocalJSX.AddRemoveBtn & JSXBase.HTMLAttributes<HTMLAddRemoveBtnElement>;
+            "add-result-btn": LocalJSX.AddResultBtn & JSXBase.HTMLAttributes<HTMLAddResultBtnElement>;
+            "add-to-filter-btn": LocalJSX.AddToFilterBtn & JSXBase.HTMLAttributes<HTMLAddToFilterBtnElement>;
+            "filter-component": LocalJSX.FilterComponent & JSXBase.HTMLAttributes<HTMLFilterComponentElement>;
+            "form-component": LocalJSX.FormComponent & JSXBase.HTMLAttributes<HTMLFormComponentElement>;
+            "form-field": LocalJSX.FormField & JSXBase.HTMLAttributes<HTMLFormFieldElement>;
+            "group-component": LocalJSX.GroupComponent & JSXBase.HTMLAttributes<HTMLGroupComponentElement>;
+            "modal-cancel-btn": LocalJSX.ModalCancelBtn & JSXBase.HTMLAttributes<HTMLModalCancelBtnElement>;
+            "modal-submit-btn": LocalJSX.ModalSubmitBtn & JSXBase.HTMLAttributes<HTMLModalSubmitBtnElement>;
             "my-checkbox": LocalJSX.MyCheckbox & JSXBase.HTMLAttributes<HTMLMyCheckboxElement>;
             "my-filter": LocalJSX.MyFilter & JSXBase.HTMLAttributes<HTMLMyFilterElement>;
+            "my-modal": LocalJSX.MyModal & JSXBase.HTMLAttributes<HTMLMyModalElement>;
+            "remove-result-btn": LocalJSX.RemoveResultBtn & JSXBase.HTMLAttributes<HTMLRemoveResultBtnElement>;
             "result-btn": LocalJSX.ResultBtn & JSXBase.HTMLAttributes<HTMLResultBtnElement>;
+            "result-component": LocalJSX.ResultComponent & JSXBase.HTMLAttributes<HTMLResultComponentElement>;
             "sort-btn": LocalJSX.SortBtn & JSXBase.HTMLAttributes<HTMLSortBtnElement>;
         }
     }

@@ -1,0 +1,17 @@
+
+.form-field{
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    border: 0.2rem solid rgb(0, 0, 0);
+}
+.form-label{
+    margin: auto;
+    font-size: 1.4rem;
+}
+.form-input{
+    height: 2rem;
+    margin: auto;
+    font-size: 1.6rem;
+    width: 50%;
+}

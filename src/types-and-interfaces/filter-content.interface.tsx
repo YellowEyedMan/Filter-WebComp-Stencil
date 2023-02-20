@@ -1,6 +1,6 @@
 export default interface ResultItem {
     id: number,
-    name: string
-    group: string,
+    content : {name: string, checked: boolean}
+    group: {name: string, checked: boolean},
 }
 

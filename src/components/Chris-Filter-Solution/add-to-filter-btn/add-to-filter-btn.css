@@ -1,0 +1,27 @@
+.add-to-filter-btn-wrapper{
+    border: 0.2rem solid rgb(0, 0, 0);
+    height: 5rem;
+    width: 5rem;
+    transition-duration: 0.6s;
+
+}
+.add-to-filter-btn{
+    margin: 0.52rem;
+    height: 4rem;
+    width: 4rem;
+    font-size: 4rem;
+    line-height: 3.6rem;
+    background-color: white;
+    border: 0.2rem solid black;
+    transition-duration: 0.4s;
+    border-radius: 50%;
+}
+.add-to-filter-btn:hover{
+    background-color: black;
+    color: white;
+    border: 0.2rem solid white;
+}
+.add-to-filter-btn-wrapper:hover{
+    background-color: black;
+
+}

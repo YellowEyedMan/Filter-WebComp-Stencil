@@ -1,0 +1,23 @@
+.new-item-form{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.modal-btns-container{
+    display: flex;
+    flex-direction: row;
+    margin: 2rem 0rem 0rem 0rem;
+    justify-content: space-around;
+}
+.form-field-adjustments{
+    display: flex;
+    bottom: 3.8rem;
+    left: 4rem;
+    right: 4rem;
+    position: absolute;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+

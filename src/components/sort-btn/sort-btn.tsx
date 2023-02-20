@@ -1,4 +1,5 @@
 import { Component, h, Event, State, EventEmitter, Prop } from '@stencil/core';
+import ResultItem from '../../types-and-interfaces/filter-content.interface';
 
 @Component({
     tag: 'sort-btn',
@@ -8,7 +9,7 @@ import { Component, h, Event, State, EventEmitter, Prop } from '@stencil/core';
 
   export class SortButton{ 
 
-    @Prop() name: string
+    @Prop() name: string;
     @State() sortChecked: boolean = false
 
     @Prop() sortOnChange: () => void

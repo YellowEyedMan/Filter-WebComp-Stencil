@@ -1,0 +1,11 @@
+.remove-result-btn{
+    border: 0.2rem solid black;
+    font-size: 1.4rem;
+    /* margin: 1rem auto; */
+    text-align: center;
+    transition-duration: 0.3s;
+}
+.remove-result-btn:hover{
+    background-color: black;
+    color: white;
+}

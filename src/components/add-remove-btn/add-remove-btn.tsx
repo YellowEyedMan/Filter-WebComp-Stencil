@@ -1,48 +1,45 @@
-
-import { Component, Element, Listen, Prop, State, h } from '@stencil/core';
+import { Component, Element, Event, Prop, State, h, EventEmitter } from '@stencil/core';
 
 @Component({
-    tag: 'add-remove-btn',
-    styleUrl: 'add-remove-btn.css',
-    shadow: true,
+  tag: 'add-remove-btn',
+  styleUrl: 'add-remove-btn.css',
+  shadow: true,
 })
-
 export class AddRemoveBtn {
-@Element() el:HTMLElement
-  @Prop() color: string
+  @Element() el: HTMLElement;
+  @Prop() role: string;
   @Prop() boxChecked: boolean
 
   @State() count: number = 0;
 
+  @Event() addResultEvent: EventEmitter;
+  @Event() removeResultEvent: EventEmitter;
+
+  handleClick(){
+    let {role} = this;
+
+    if(role === "-"){
+      this.removeResultEvent.emit(true)
+    } else if(role === "+"){
+      this.addResultEvent.emit(true)
+      
+    }
+  }
+
   setCount(e: Event) {
     e.preventDefault();
 
-    if (((e.target as HTMLInputElement).innerHTML) == "+" ){
-    return this.count = this.count + 1
-     } else if (((e.target as HTMLInputElement).innerHTML) == "-" && this.count > 0) {
-    return this.count = this.count - 1
+    if ((e.target as HTMLInputElement).innerHTML == '+') {
+      return (this.count = this.count + 1);
+    } else if ((e.target as HTMLInputElement).innerHTML == '-' && this.count > 0) {
+      return (this.count = this.count - 1);
+    }
   }
-}
-
 
   render() {
-    // console.log(this.boxChecked)
-    if (this.boxChecked) {
-        return ( 
-         <div class="add-remove-container">
-             <button class="add-remove-btn remove-btn" onClick={this.setCount.bind(this)}>-</button>
-             <p class='add-remove-btn-text'>{this.count}</p>
-             <button class="add-remove-btn add-btn" onClick={this.setCount.bind(this)}>+</button>
-         </div>
-        )
-
-    } 
-    if (!this.boxChecked) {
-        return ( 
-            <div class="add-remove-container">
-                <p class='add-remove-btn-text'>Select</p>
-            </div>
-           )
-    }
+    return (
+      <div class={this.role === "-" ? "add-remove-btn remove-btn" : "add-remove-btn add-btn" } onClick={this.handleClick.bind(this)}>{this.role}
+      </div>
+    );
   }
 }
